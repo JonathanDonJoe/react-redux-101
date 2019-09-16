@@ -4,9 +4,7 @@ import { connect } from 'react-redux'
 class FrozenDept extends Component {
 
     render() { 
-        console.log(this.props)
-        const frozen = this.props.frozenData.map((item,i )=> <h1 key={i}>{item.quantity} {item.food}</h1>)
-        console.log(frozen)
+        const frozen = this.props.frozenData.map((item,i )=> <h3 key={i}>{item.quantity} {item.food}</h3>)
         return ( 
             frozen
         );

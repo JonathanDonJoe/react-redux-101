@@ -4,9 +4,7 @@ import { connect } from 'react-redux';
 class DairyDept extends Component {
 
     render() { 
-        console.log(this.props)
-        const dairy = this.props.dairyData.map((item,i )=> <h1 key={i}>{item.quantity} {item.food}</h1>)
-        console.log(dairy)
+        const dairy = this.props.dairyData.map((item,i )=> <h3 key={i}>{item.quantity} {item.food}</h3>)
         return ( 
             dairy
         );

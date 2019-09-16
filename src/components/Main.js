@@ -1,28 +1,19 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux'
+import DairyDept from './DairyDept';
+import MeatDept from './MeatDept';
+import FrozenDept from './FrozenDept'
 
 class Main extends Component {
 
     render() { 
-        console.log(this.props)
-        const frozens = this.props.frozenData.map((item,i )=> <h1 key={item.food+i}>{item.quantity} {item.food}</h1>)
-        const meat = this.props.meatData.map((item,i )=> <h1 key={item.food+i}>{item.quantity} {item.food}</h1>)
-        const dairy = this.props.dairyData.map((item,i )=> <h1 key={item.food+i}>{item.quantity} {item.food}</h1>)
-
         return ( 
-            [...frozens, ...meat, ...dairy]
+            <div>
+                <MeatDept />
+                <DairyDept />
+                <FrozenDept />
+            </div>
         );
     }
 }
 
-function mapStatetoProps(state) {
-    return {
-        frozenData: state.frozen,
-        meatData: state.meat,
-        dairyData: state.dairy
-    }
-}
-
-// export default Main;
-
-export default connect(mapStatetoProps, null) (Main)
+export default Main;
