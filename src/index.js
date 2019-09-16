@@ -2,11 +2,19 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
-import * as serviceWorker from './serviceWorker';
+
+// 1. In order to use React with Redux, we need react-redux.
+import { Provider } from 'react-redux';
+
+// 2. Create a redux store, so that: Redux exists and the provider has the store
+import { createStore } from 'redux';
+
+// 3. Reducers to populate the store.  Reducers go into the rootReducer.  Make individual reducers to go into the rootReducer
+
+
+
+
+
 
 ReactDOM.render(<App />, document.getElementById('root'));
 
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: https://bit.ly/CRA-PWA
-serviceWorker.unregister();
