@@ -8,7 +8,7 @@ class NavBar extends Component {
         return(
             <ul className='nav-bar'>
                 <li className="nav-item">
-                    <Link to="/" className="nav-link">Main</Link>
+                    <Link to="/" className="nav-link">Store Main</Link>
                 </li>
                 <li className="nav-item">
                     <Link to="/frozen" className="nav-link">Frozen Dept</Link>

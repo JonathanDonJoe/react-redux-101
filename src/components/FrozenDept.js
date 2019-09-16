@@ -1,12 +1,23 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux'
 
 class FrozenDept extends Component {
 
     render() { 
+        console.log(this.props)
+        const frozen = this.props.frozenData.map((item,i )=> <h1 key={i}>{item.quantity} {item.food}</h1>)
+        console.log(frozen)
         return ( 
-            <h1>FrozenDept</h1>
+            frozen
         );
     }
 }
 
-export default FrozenDept;
+function mapStateToProps(state) {
+    return {
+        frozenData: state.frozen
+    }
+}
+
+// export default FrozenDept;
+export default connect(mapStateToProps,null)(FrozenDept);
