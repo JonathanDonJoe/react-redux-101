@@ -18,7 +18,9 @@ const aPublix = createStore(rootReducer);
 // Provider is the component that glues React and Redux.  We hand the provider to ReactDOM.render, and we hand the provider a prop of store
 
 ReactDOM.render(
-    <Provider store = {aPublix} />
+    <Provider store = {aPublix}>
+        <App />
+    </Provider>
     ,
     document.getElementById('root')
 );
