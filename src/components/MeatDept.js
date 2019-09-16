@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import ItemStock from './ItemStock';
 
 class MeatDept extends Component {
 
     render() { 
-        const meat = this.props.meatData.map((item,i )=> <h3 key={i}>{item.quantity} {item.food}</h3>)
+        const meat = this.props.meatData.map((item, i)=> <ItemStock key={item.food + i} quantity={item.quantity} food={item.food} />)
         return ( 
             meat
         );
