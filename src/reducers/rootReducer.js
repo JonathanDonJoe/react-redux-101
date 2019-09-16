@@ -9,3 +9,13 @@ import { combineReducers } from 'redux';
 import frozenReducer from './frozenReducer';
 import dairyReducer from './dairyReducer';
 import meatReducer from './meatReducer';
+
+// 3. Call combineReducers and hand it an object.  Each key in the object will be a piece of state in the redux Store.  Each value will be the value of that piece of state in the redux store
+
+const rootReducer = combineReducers({
+    frozen: frozenReducer,
+    dairy: dairyReducer,
+    meat: meatReducer
+})
+
+export default rootReducer;

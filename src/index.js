@@ -10,11 +10,16 @@ import { Provider } from 'react-redux';
 import { createStore } from 'redux';
 
 // 3. Reducers to populate the store.  Reducers go into the rootReducer.  Make individual reducers to go into the rootReducer
+import rootReducer from './reducers/rootReducer';
 
+// 4. Actually create the store by passing it the rootReducer
+const aPublix = createStore(rootReducer);
 
+// Provider is the component that glues React and Redux.  We hand the provider to ReactDOM.render, and we hand the provider a prop of store
 
-
-
-
-ReactDOM.render(<App />, document.getElementById('root'));
+ReactDOM.render(
+    <Provider store = {aPublix} />
+    ,
+    document.getElementById('root')
+);
 
