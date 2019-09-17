@@ -1,13 +1,14 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import ItemStock from './ItemStock';
 
 class Main extends Component {
 
     render() { 
-        const frozens = this.props.frozenData.map((item,i )=> <ItemStock key={item.food + i} quantity={item.quantity} food={item.food}  index={i}/>)
-        const meat = this.props.meatData.map((item,i )=> <ItemStock key={item.food + i} quantity={item.quantity} food={item.food}  index={i}/>)
-        const dairy = this.props.dairyData.map((item,i )=> <ItemStock key={item.food + i} quantity={item.quantity} food={item.food}  index={i}/>)
+
+ 
+        const frozens = this.props.frozenData.map((item,i )=> <h3 key={item.food+i}>{item.quantity} {item.food}</h3>)
+        const meat = this.props.meatData.map((item,i )=> <h3 key={item.food+i}>{item.quantity} {item.food}</h3>)
+        const dairy = this.props.dairyData.map((item,i )=> <h3 key={item.food+i}>{item.quantity} {item.food}</h3>)
 
         return ( 
             [...frozens, ...meat, ...dairy]
