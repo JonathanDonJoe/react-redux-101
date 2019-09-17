@@ -19,12 +19,31 @@ const seedData = [
     }
 ]
 
+const seedData2 = [
+    {
+        food: 'cheese',
+        quantity: 1
+    },
+    {
+        food: 'milk',
+        quantity: 37
+    },
+    {
+        food: 'yogurt',
+        quantity: 75
+    },
+    {
+        food: 'kefir',
+        quantity: 3
+    }
+]
 
 
 
 
 
-export default(state = seedData, action) => {
+
+export default(state = seedData2, action) => {
     // console.log('Dairy Reducer is running!');
     // console.log(action.type)
     if (action.type === 'updateDairy') {
@@ -35,6 +54,10 @@ export default(state = seedData, action) => {
             newState[action.payload.indexToChange].quantity--
         }
         return newState;
+    } else if (action.type === 'clearInventory') {
+        return [];
+    } else if (action.type === 'resetInventory') {
+        return seedData;
     } else {
         return state;
     }

@@ -18,13 +18,31 @@ const seedData = [
         quantity: 120
     }
 ]
+const seedData2 = [
+    {
+        food: 'steak',
+        quantity: 20
+    },
+    {
+        food: 'chicken',
+        quantity: 50
+    },
+    {
+        food: 'fish',
+        quantity: 12
+    },
+    {
+        food: 'crab',
+        quantity: 120
+    }
+]
 
 
 
 
 
 
-export default(state = seedData, action) => {
+export default(state = seedData2, action) => {
     // console.log('Meat Reducer is running!');
     // console.log(action.type)
     if (action.type === 'updateMeat') {
@@ -35,6 +53,10 @@ export default(state = seedData, action) => {
             newState[action.payload.indexToChange].quantity--
         }
         return newState;
+    } else if (action.type === 'clearInventory') {
+        return [];
+    } else if (action.type === 'resetInventory') {
+        return seedData;
     } else {
         return state;
     }

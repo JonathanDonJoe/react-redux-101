@@ -18,13 +18,31 @@ const seedData = [
         quantity: 132
     }
 ]
+const seedData2 = [
+    {
+        food: 'pizza',
+        quantity: 12
+    },
+    {
+        food: 'ice cream',
+        quantity: 21
+    },
+    {
+        food: 'family dinner',
+        quantity: 5
+    },
+    {
+        food: 'frozen veggies',
+        quantity: 132
+    }
+]
 
 
 
 
 
 
-export default(state = seedData, action) => {
+export default(state = seedData2, action) => {
     // console.log('Frozen Reducer is running!');
     // console.log(action.type)
     // console.log(action.payload)
@@ -36,6 +54,10 @@ export default(state = seedData, action) => {
             newState[action.payload.indexToChange].quantity--;
         }
         return newState;
+    } else if (action.type === 'clearInventory') {
+        return [];
+    } else if (action.type === 'resetInventory') {
+        return seedData;
     } else {
         return state;
     }
