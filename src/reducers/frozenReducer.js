@@ -58,6 +58,14 @@ export default(state = seedData2, action) => {
         return [];
     } else if (action.type === 'resetInventory') {
         return seedData;
+    } else if (action.type === 'addItem-Frozen') {
+        let newState = [...state];
+        const {food, quantity} = action.payload;
+        newState.push({
+            food: food,
+            quantity: quantity
+        });
+        return newState;
     } else {
         return state;
     }

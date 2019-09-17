@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { bindActionCreators } from '../../../../../../Library/Caches/typescript/3.6/node_modules/redux';
 import ItemStock from './ItemStock';
 import updateDairy from '../actions/dairyInvUpdate'
-import { bindActionCreators } from '../../../../../../Library/Caches/typescript/3.6/node_modules/redux';
+import AddItem from './AddItem';
 
 class DairyDept extends Component {
 
@@ -13,7 +14,10 @@ class DairyDept extends Component {
     render() { 
         const dairy = this.props.dairyData.map((item, i)=> <ItemStock key={item.food + i} quantity={item.quantity} food={item.food} changeQuantity = {this.changeQuantity} index={i} />)
         return ( 
-            dairy
+            <div>
+                <AddItem dept='Dairy' />
+                {dairy}
+            </div>
         );
     }
 }

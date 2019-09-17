@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
+import { bindActionCreators } from 'redux';
 import ItemStock from './ItemStock';
-import updateFrozen from '../actions/frozenInvUpdate'
-import { bindActionCreators } from 'redux'
+import updateFrozen from '../actions/frozenInvUpdate';
+import AddItem from './AddItem';
 
 class FrozenDept extends Component {
 
@@ -18,7 +19,10 @@ class FrozenDept extends Component {
         // this.props.updateFrozen([{}]);
         const frozen = this.props.frozenData.map((item, i)=> <ItemStock key={item.food + i} quantity={item.quantity} food={item.food} changeQuantity={this.changeQuantity} index={i}/>)
         return ( 
-            frozen
+            <div>
+                <AddItem dept='Frozen' />
+                {frozen}
+            </div>        
         );
     }
 }
