@@ -29,7 +29,13 @@ export default(state = seedData, action) => {
     console.log(action.type)
     console.log(action.payload)
     if (action.type === 'updateFrozen') {
-        return action.payload;
+        let newState = [...state];
+        if (action.payload.operation === '+') {
+            newState[action.payload.indexToChange].quantity++;
+        } else if (action.payload.operation === '-') {
+            newState[action.payload.indexToChange].quantity--;
+        }
+        return newState;
     } else {
         return state;
     }
