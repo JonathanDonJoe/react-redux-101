@@ -6,8 +6,12 @@ import { bindActionCreators } from 'redux'
 
 class FrozenDept extends Component {
 
+    componentDidMount() {
+        this.props.updateFrozen([{}])
+    }
+
     render() { 
-        this.props.updateFrozen();
+        // this.props.updateFrozen([{}]);
         const frozen = this.props.frozenData.map((item, i)=> <ItemStock key={item.food + i} quantity={item.quantity} food={item.food} />)
         return ( 
             frozen
@@ -23,6 +27,10 @@ function mapStateToProps(state) {
 
 // How we connect our component using this action creator to the dispatch
 function mapDispatchToProps(dispatch) {
+    // bindActionCreators changes updateFrozen from a function to an action creator
+    // An action creator is a function that returns an action
+    // Action has at least one property: type
+    // The dispatch will send that object to every reducer
     return bindActionCreators({
         updateFrozen: updateFrozen
     }, dispatch)
