@@ -7,7 +7,6 @@ import { bindActionCreators } from 'redux'
 class FrozenDept extends Component {
 
     changeQuantity = (operation, indexToChange) => {
-        console.log(operation,indexToChange);
         this.props.updateFrozen(operation, indexToChange)
     }
 

@@ -25,7 +25,17 @@ const seedData = [
 
 
 export default(state = seedData, action) => {
-    console.log('Dairy Reducer is running!');
-    console.log(action.type)
-    return state;
+    // console.log('Dairy Reducer is running!');
+    // console.log(action.type)
+    if (action.type === 'updateDairy') {
+        let newState = [...state];
+        if (action.payload.operation === '+') {
+            newState[action.payload.indexToChange].quantity++
+        } else if (action.payload.operation === '-') {
+            newState[action.payload.indexToChange].quantity--
+        }
+        return newState;
+    } else {
+        return state;
+    }
 }
